@@ -319,7 +319,7 @@ namespace GildedRoseTests
 
 		#region Conjured Items
 
-		const string ConjuredItemName = "Normal Item";
+		const string ConjuredItemName = "Conjured Item";
 
 		[Fact]
 		public void ConjuredItem_BeforeSellIn()
@@ -365,7 +365,7 @@ namespace GildedRoseTests
 
 			shop.UpdateQuality(3);
 
-			Assert.Equal(-12, shop[0].SellIn);
+			Assert.Equal(-8, shop[0].SellIn);
 			Assert.Equal(0, shop[0].Quality);
 		}
 
@@ -390,7 +390,7 @@ namespace GildedRoseTests
 			shop.UpdateQuality(3);
 
 			Assert.Equal(-2, shop[0].SellIn);
-			Assert.Equal(6, shop[0].Quality);
+			Assert.Equal(2, shop[0].Quality);
 		}
 
 		#endregion
@@ -439,8 +439,8 @@ namespace GildedRoseTests
 			Assert.Equal(80, shop[Sulfuras].Quality);
 			Assert.Equal(10, shop[AgedBrie].Quality);
 			Assert.Equal(45, shop[BackstagePasses].Quality);
-			Assert.Equal(1, shop["Conjured Item A"].Quality);
-			Assert.Equal(22, shop["Conjured Item B"].Quality);
+			Assert.Equal(0, shop["Conjured Item A"].Quality);
+			Assert.Equal(20, shop["Conjured Item B"].Quality);
 			Assert.Equal(0, shop["Conjured Item C"].Quality);
 			Assert.Equal(0, shop["Conjured Item D"].Quality);
 
@@ -453,10 +453,10 @@ namespace GildedRoseTests
 			Assert.Equal(80, shop[Sulfuras].Quality);
 			Assert.Equal(18, shop[AgedBrie].Quality);
 			Assert.Equal(50, shop[BackstagePasses].Quality);
-			Assert.Equal(0, shop["Normal Item A"].Quality);
-			Assert.Equal(4, shop["Normal Item B"].Quality);
-			Assert.Equal(0, shop["Normal Item C"].Quality);
-			Assert.Equal(0, shop["Normal Item D"].Quality);
+			Assert.Equal(0, shop["Conjured Item A"].Quality);
+			Assert.Equal(4, shop["Conjured Item B"].Quality);
+			Assert.Equal(0, shop["Conjured Item C"].Quality);
+			Assert.Equal(0, shop["Conjured Item D"].Quality);
 		}
 
 		[Fact]
@@ -508,8 +508,8 @@ namespace GildedRoseTests
 				Assert.Equal(80, shop[Sulfuras].Quality);
 				Assert.Equal(10, shop[AgedBrie].Quality);
 				Assert.Equal(45, shop[BackstagePasses].Quality);
-				Assert.Equal(1, shop["Conjured Item A"].Quality);
-				Assert.Equal(22, shop["Conjured Item B"].Quality);
+				Assert.Equal(0, shop["Conjured Item A"].Quality);
+				Assert.Equal(20, shop["Conjured Item B"].Quality);
 				Assert.Equal(0, shop["Conjured Item C"].Quality);
 				Assert.Equal(0, shop["Conjured Item D"].Quality);
 
@@ -522,10 +522,10 @@ namespace GildedRoseTests
 				Assert.Equal(80, shop[Sulfuras].Quality);
 				Assert.Equal(18, shop[AgedBrie].Quality);
 				Assert.Equal(50, shop[BackstagePasses].Quality);
-				Assert.Equal(0, shop["Normal Item A"].Quality);
-				Assert.Equal(4, shop["Normal Item B"].Quality);
-				Assert.Equal(0, shop["Normal Item C"].Quality);
-				Assert.Equal(0, shop["Normal Item D"].Quality);
+				Assert.Equal(0, shop["Conjured Item A"].Quality);
+				Assert.Equal(4, shop["Conjured Item B"].Quality);
+				Assert.Equal(0, shop["Conjured Item C"].Quality);
+				Assert.Equal(0, shop["Conjured Item D"].Quality);
 			}
 		}
 

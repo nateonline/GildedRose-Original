@@ -37,6 +37,7 @@ namespace GildedRoseKata
 				item.SellIn--;
 
 				int normalQualityChange = (item.SellIn >= 0) ? 1 : 2;
+				int conjuredCoeficient = (item.Name.ToLower().Contains("conjured")) ? 2 : 1;
 
 				item.Quality = item.Name switch
 				{
@@ -48,7 +49,7 @@ namespace GildedRoseKata
 						_ => item.Quality + 1
 					},
 					AgedBrie => item.Quality + normalQualityChange,
-					_ => item.Quality - normalQualityChange,
+					_ => item.Quality - (normalQualityChange * conjuredCoeficient),
 				};
 
 				item.Quality = Math.Clamp(item.Quality, 0, 50);
