@@ -1,6 +1,7 @@
 ﻿using Xunit;
 using System.Collections.Generic;
 using GildedRoseKata;
+using static GildedRoseKata.GildedRose;
 
 namespace GildedRoseTests
 {
@@ -87,14 +88,12 @@ namespace GildedRoseTests
 
 		#region Aged Brie
 
-		const string AgedBrieName = "Aged Brie";
-
 		[Fact]
 		public void AgedBrie_BeforeSellIn()
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(AgedBrieName, 20, 35)
+				new Item(AgedBrie, 20, 35)
 			});
 
 			shop.UpdateQuality(1);
@@ -118,7 +117,7 @@ namespace GildedRoseTests
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(AgedBrieName, -1, 18)
+				new Item(AgedBrie, -1, 18)
 			});
 
 			shop.UpdateQuality(1);
@@ -142,7 +141,7 @@ namespace GildedRoseTests
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(AgedBrieName, 5, 5)
+				new Item(AgedBrie, 5, 5)
 			});
 
 			shop.UpdateQuality(1);
@@ -166,14 +165,12 @@ namespace GildedRoseTests
 
 		#region Sulfuras
 
-		const string SulfurasName = "Sulfuras, Hand of Ragnaros";
-
 		[Fact]
 		public void Sulfuras_BeforeSellIn()
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(SulfurasName, 250, 80)
+				new Item(Sulfuras, 250, 80)
 			});
 
 			shop.UpdateQuality(1);
@@ -197,7 +194,7 @@ namespace GildedRoseTests
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(SulfurasName, -1337, 80)
+				new Item(Sulfuras, -1337, 80)
 			});
 
 			shop.UpdateQuality(1);
@@ -221,7 +218,7 @@ namespace GildedRoseTests
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(SulfurasName, 5, 80)
+				new Item(Sulfuras, 5, 80)
 			});
 
 			shop.UpdateQuality(1);
@@ -245,14 +242,12 @@ namespace GildedRoseTests
 
 		#region Backstage Passes
 
-		const string BackstagePassesName = "Backstage passes to a TAFKAL80ETC concert";
-
 		[Fact]
 		public void BackstagePasses_BeforeSellIn()
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(BackstagePassesName, 15, 1)
+				new Item(BackstagePasses, 15, 1)
 			});
 
 			shop.UpdateQuality(1);
@@ -276,7 +271,7 @@ namespace GildedRoseTests
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(BackstagePassesName, -1, 40)
+				new Item(BackstagePasses, -1, 40)
 			});
 
 			shop.UpdateQuality(1);
@@ -300,7 +295,7 @@ namespace GildedRoseTests
 		{
 			GildedRose shop = new GildedRose(new List<Item>
 			{
-				new Item(BackstagePassesName, 6, 10)
+				new Item(BackstagePasses, 6, 10)
 			});
 
 			shop.UpdateQuality(1);
@@ -333,9 +328,9 @@ namespace GildedRoseTests
 				new Item("Item B", -5, 40),
 				new Item("Item C", 0, 0),
 				new Item("Item D", 20, 0),
-				new Item(SulfurasName, 1, 80),
-				new Item(AgedBrieName, -10, 0),
-				new Item(BackstagePassesName, 13, 38),
+				new Item(Sulfuras, 1, 80),
+				new Item(AgedBrie, -10, 0),
+				new Item(BackstagePasses, 13, 38),
 			});
 
 			shop.UpdateQuality(1);
@@ -344,9 +339,9 @@ namespace GildedRoseTests
 			Assert.Equal(38, shop["Item B"].Quality);
 			Assert.Equal(0, shop["Item C"].Quality);
 			Assert.Equal(0, shop["Item D"].Quality);
-			Assert.Equal(80, shop[SulfurasName].Quality);
-			Assert.Equal(2, shop[AgedBrieName].Quality);
-			Assert.Equal(39, shop[BackstagePassesName].Quality);
+			Assert.Equal(80, shop[Sulfuras].Quality);
+			Assert.Equal(2, shop[AgedBrie].Quality);
+			Assert.Equal(39, shop[BackstagePasses].Quality);
 
 			shop.UpdateQuality(4);
 
@@ -354,9 +349,9 @@ namespace GildedRoseTests
 			Assert.Equal(30, shop["Item B"].Quality);
 			Assert.Equal(0, shop["Item C"].Quality);
 			Assert.Equal(0, shop["Item D"].Quality);
-			Assert.Equal(80, shop[SulfurasName].Quality);
-			Assert.Equal(10, shop[AgedBrieName].Quality);
-			Assert.Equal(45, shop[BackstagePassesName].Quality);
+			Assert.Equal(80, shop[Sulfuras].Quality);
+			Assert.Equal(10, shop[AgedBrie].Quality);
+			Assert.Equal(45, shop[BackstagePasses].Quality);
 
 			shop.UpdateQuality(4);
 
@@ -364,9 +359,9 @@ namespace GildedRoseTests
 			Assert.Equal(22, shop["Item B"].Quality);
 			Assert.Equal(0, shop["Item C"].Quality);
 			Assert.Equal(0, shop["Item D"].Quality);
-			Assert.Equal(80, shop[SulfurasName].Quality);
-			Assert.Equal(18, shop[AgedBrieName].Quality);
-			Assert.Equal(50, shop[BackstagePassesName].Quality);
+			Assert.Equal(80, shop[Sulfuras].Quality);
+			Assert.Equal(18, shop[AgedBrie].Quality);
+			Assert.Equal(50, shop[BackstagePasses].Quality);
 		}
 
 		[Fact]
@@ -382,9 +377,9 @@ namespace GildedRoseTests
 					new Item("Item B", -5, 40),
 					new Item("Item C", 0, 0),
 					new Item("Item D", 20, 0),
-					new Item(SulfurasName, 1, 80),
-					new Item(AgedBrieName, -10, 0),
-					new Item(BackstagePassesName, 13, 38),
+					new Item(Sulfuras, 1, 80),
+					new Item(AgedBrie, -10, 0),
+					new Item(BackstagePasses, 13, 38),
 				};
 
 				items.Shuffle();
@@ -397,9 +392,9 @@ namespace GildedRoseTests
 				Assert.Equal(38, shop["Item B"].Quality);
 				Assert.Equal(0, shop["Item C"].Quality);
 				Assert.Equal(0, shop["Item D"].Quality);
-				Assert.Equal(80, shop[SulfurasName].Quality);
-				Assert.Equal(2, shop[AgedBrieName].Quality);
-				Assert.Equal(39, shop[BackstagePassesName].Quality);
+				Assert.Equal(80, shop[Sulfuras].Quality);
+				Assert.Equal(2, shop[AgedBrie].Quality);
+				Assert.Equal(39, shop[BackstagePasses].Quality);
 
 				shop.UpdateQuality(4);
 
@@ -407,9 +402,9 @@ namespace GildedRoseTests
 				Assert.Equal(30, shop["Item B"].Quality);
 				Assert.Equal(0, shop["Item C"].Quality);
 				Assert.Equal(0, shop["Item D"].Quality);
-				Assert.Equal(80, shop[SulfurasName].Quality);
-				Assert.Equal(10, shop[AgedBrieName].Quality);
-				Assert.Equal(45, shop[BackstagePassesName].Quality);
+				Assert.Equal(80, shop[Sulfuras].Quality);
+				Assert.Equal(10, shop[AgedBrie].Quality);
+				Assert.Equal(45, shop[BackstagePasses].Quality);
 
 				shop.UpdateQuality(4);
 
@@ -417,9 +412,9 @@ namespace GildedRoseTests
 				Assert.Equal(22, shop["Item B"].Quality);
 				Assert.Equal(0, shop["Item C"].Quality);
 				Assert.Equal(0, shop["Item D"].Quality);
-				Assert.Equal(80, shop[SulfurasName].Quality);
-				Assert.Equal(18, shop[AgedBrieName].Quality);
-				Assert.Equal(50, shop[BackstagePassesName].Quality);
+				Assert.Equal(80, shop[Sulfuras].Quality);
+				Assert.Equal(18, shop[AgedBrie].Quality);
+				Assert.Equal(50, shop[BackstagePasses].Quality);
 			}
 
 			#endregion
