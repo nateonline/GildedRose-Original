@@ -4,13 +4,23 @@ namespace GildedRoseKata
 {
     public class GildedRose
     {
-        IList<Item> Items;
-        public GildedRose(IList<Item> Items)
+        List<Item> Items;
+
+		public Item this[string name] => Items.Find(i => i.Name == name);
+		public Item this[int index] => Items[index];
+
+        public GildedRose(List<Item> Items)
         {
             this.Items = Items;
         }
 
-        public void UpdateQuality()
+        public void UpdateQuality(int days)
+		{
+			for (int i = 0; i < days; i++)
+				UpdateQuality();
+		}
+		
+		public void UpdateQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
